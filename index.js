@@ -10,7 +10,7 @@ const port = process.env.PORT;
     hbs.registerPartials(__dirname + '/views/partials', function(err) {});
     app.use(express.static('public'));
 
-    app.get('/',(req,res)=>{
+    /*app.get('/',(req,res)=>{
         res.render('home',{
             nombre:'Juan',
             titulo:'adfsafsafsa',
@@ -31,9 +31,9 @@ const port = process.env.PORT;
             titulo:'adfsafsafsa',
             casa: 'A Casita Pete'
         });
-    });
+    });*/
     app.get('*',(req,res)=>{
-        res.send('404 | Page not found')
+        res.sendFile(__dirname + '/public/index.html');
     });
     app.listen(port,()=>{
        console.log(`Example app listeninng at http://localhost:${port}`)
